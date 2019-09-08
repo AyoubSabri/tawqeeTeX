@@ -1,23 +1,20 @@
-from parser import *
 import requests
 import json
 import sys
-
-#TODO: methode de calcul
+from parser import get_args
 
 fajr, sunrise, dhuhr, asr, maghrib, isha = [], [], [], [], [], []
 prayers = [fajr, sunrise, dhuhr, asr, maghrib, isha]
-str_pr  = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha']
-city, country, month, year, method, lang = parse_args()
 date_gr, months = {}, {}
 hi_day, hi_weekday = [], []
+city, country, month, year, method, lang = get_args()
 
 url = 'http://api.aladhan.com/v1/calendarByCity?city=' + city +     \
                     '&country=' + country + '&method=' + method +   \
                     '&month=' + month + '&year=' + year
 
 
-def get_data():
+def init_data():
 
     response = requests.get(url)
 
@@ -25,6 +22,7 @@ def get_data():
         sys.exit("Error: Couldn't get from url")
 
     data = response.json()
+    str_pr  = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha']
 
     for i in data['data']:
         months['gr'] = i['date']['gregorian']['month']['en']

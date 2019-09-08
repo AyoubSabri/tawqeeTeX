@@ -1,13 +1,12 @@
-#NOTE: https://docs.python.org/3/library/argparse.html
-
 import argparse
 
-prog_name = 'islamFrame'
+prog_name = 'tawqeeTeX'
 version = '1.0'
 
-def parse_args():
+def get_args():
+
     # create the parser
-    parser = argparse.ArgumentParser(prog=prog_name, description='islamFrame',
+    parser = argparse.ArgumentParser(prog=prog_name, description='tawqeeTeX is a LaTeX prayer time generator',
                                      epilog="Developed by Ayoub Sabri - ayoub.sabri@etu.upmc.fr")
 
     # positional arguments
