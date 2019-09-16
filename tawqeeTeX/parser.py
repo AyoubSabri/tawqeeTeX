@@ -31,7 +31,7 @@ def get_args():
         9  - Kuwait \n
         10 - Qatar \n
         11 - Majlis Ugama Islam Singapura, Singapore \n
-        12 - Union Organization islamic de France \n
+        12 - Union Organization Islamique de France \n
         13 - Diyanet İşleri Başkanlığı, Turkey \n
         14 - Spiritual Administration of Muslims of Russia \n\n
 
