@@ -52,7 +52,7 @@ def get_month_str():
 def get_title_str():
 
     dict_title = {'en': 'Prayer time schedule for the month of ',
-                  'it': 'Orario preghiera del mese di ',
+                  'it': 'Orario di preghiera per il mese di ',
                   'fr': 'Horaire de prière pour le mois de '}
 
     return dict_title[lang] + get_month_str() + ' ' + year
