@@ -8,11 +8,11 @@ fajr, sunrise, dhuhr, asr, maghrib, isha = [], [], [], [], [], []
 prayers = [fajr, sunrise, dhuhr, asr, maghrib, isha]
 date_gr, months = {}, {}
 hi_day, hi_weekday = [], []
-city, country, month, year, method, lang = get_args()
+city, country, month, year, method, lang, adj = get_args()
 
 url = 'http://api.aladhan.com/v1/calendarByCity?city=' + city +     \
                     '&country=' + country + '&method=' + method +   \
-                    '&month=' + month + '&year=' + year
+                    '&month=' + month + '&year=' + year + '&adjustment=' + adj
 
 
 def init_data():

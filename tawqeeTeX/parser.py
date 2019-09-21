@@ -37,14 +37,18 @@ def get_args():
 
         Please refer to https://aladhan.com/calculation-methods to know more""")
 
-    parser.add_argument('-l','--lang', default='en',
+    parser.add_argument('-a', '--adjustment', default='0',
+                        help='define the offset for the hijri calendar (default: %(default)s)')
+
+    parser.add_argument('-l','--language', default='en',
                         choices=['en', 'fr', 'it'],
                         help='set the language (default: %(default)s)')
 
     parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + version,
-                        help='print the current version of the firmware')
+                        help='print the current version of the software')
 
     #TODO: update
 
     args = vars(parser.parse_args())
-    return args['city'], args['country'], args['month'], args['year'], args['method'], args['lang']
+    return  args['city'], args['country'], args['month'], args['year'], \
+            args['method'], args['language'], args['adjustment']
