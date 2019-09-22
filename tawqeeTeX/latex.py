@@ -67,4 +67,4 @@ def gen_pdf():
             c += 1
 
     doc.append(NoEscape(r'\end{center}'))
-    doc.generate_pdf('full', clean_tex=False)
+    doc.generate_pdf(city + '-' + month + '-' + year, clean_tex=False)
