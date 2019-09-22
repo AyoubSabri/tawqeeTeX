@@ -1,6 +1,3 @@
-#TODO: add logo plus information
-#TODO: adapt style and font (TextColor ?)
-
 from data import *
 from pylatex import Document, Head, Foot, LineBreak, LargeText, PageStyle, Tabu, VerticalSpace
 from pylatex.utils import NoEscape, bold, italic
@@ -18,11 +15,7 @@ def gen_pdf():
     header = PageStyle("header") # header_thickness=0, footer_thickness=0
     # # Create left header
     # with header.create(Head("L")):
-    #     header.append("Associazione Culturale Islamica \"Annour\"")
-    #     header.append(LineBreak())
-    #     header.append("Via Canale n° 582/4,")
-    #     header.append(LineBreak())
-    #     header.append("48014 Castel Bolognese (RA)")
+    #     header.append("")
     # # Create center header
     # with header.create(Head("C")):
     #     header.append("")
