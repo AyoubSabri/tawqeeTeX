@@ -2,7 +2,7 @@
 
 _tawqeeTeX_ is a LaTeX prayer time schedule generator.
 
-![screenshot](https://imgur.com/9w8Tsnw)
+![screenshot](https://imgur.com/9w8Tsnw.png)
 
 ## Dependencies
 * [python3](https://www.python.org/downloads/)
