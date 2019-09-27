@@ -1,7 +1,7 @@
 import requests
 import json
 import sys
-from pylatex.utils import NoEscape
+from pylatex.utils import NoEscape, bold
 from parser import get_args
 
 fajr, sunrise, dhuhr, asr, maghrib, isha = [], [], [], [], [], []
@@ -65,7 +65,11 @@ def get_weekday_str(weekday):
                     'fr': ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']}
 
     index = dict_weekday['en'].index(weekday)
-    return dict_weekday[lang][index]
+
+    if index == dict_weekday['en'].index('Friday'):
+        return bold(dict_weekday[lang][index])
+    else:
+        return dict_weekday[lang][index]
 
 
 def get_prayers_str():
