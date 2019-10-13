@@ -2,7 +2,7 @@
 
 This tool will allow you to generate time prayer schedules in the blink of an eye 😉
 
-![Screenshot](https://imgur.com/af2nIWq.png = 400x)
+![Screenshot](https://imgur.com/af2nIWq.png)
 
 ## Dependencies
 * [python3](https://www.python.org/downloads/)
