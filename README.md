@@ -2,22 +2,16 @@
 
 This tool will allow you to generate time prayer schedules in the blink of an eye 😉
 
-![Screenshot](https://imgur.com/af2nIWq.png)
-
----
+![Screenshot](https://imgur.com/af2nIWq.png = 400x)
 
 ## Dependencies
 * [python3](https://www.python.org/downloads/)
 * [pylatex](https://pypi.org/project/PyLaTeX/) (use pip3)
 * pdflatex
 
----
-
 ## Documentation
 
 Find a full description of the tool [here](https://ayoubsabri.github.io/tawqeetex/).
-
----
 
 ## How to use tawqeeTeX
 
@@ -53,20 +47,14 @@ Enter the following command in order to display a menu that includes a brief des
 $ python3 tawqeeTeX.py --help
 ```
 
----
-
 ## Output
 
 _tawqeeTeX_ will automatically create a .pdf document named [city]-[month]-[year].pdf
 A .tex file with the same name is also provided in order to give users the possibility to customize theirs tables.
 
----
-
 ## Credits
 
 I would like to thank [Islamic Network](https://github.com/islamic-network) for [Al-Adhan API](https://github.com/islamic-network/api.aladhan.com) on which I based this project.
-
----
 
 ## Contact
 
