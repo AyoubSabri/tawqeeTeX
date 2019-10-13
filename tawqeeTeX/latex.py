@@ -1,5 +1,5 @@
 from data import *
-from pylatex import Document, Head, Foot, LineBreak, LargeText, PageStyle, Tabu, VerticalSpace
+from pylatex import Document, Head, Foot, LineBreak, LargeText, PageStyle, Tabular, VerticalSpace
 from pylatex.utils import NoEscape, bold, italic
 
 def gen_pdf():
@@ -40,14 +40,17 @@ def gen_pdf():
     doc.append(VerticalSpace('20pt'))
     doc.append(LineBreak())
 
+    doc.append(NoEscape(r'\rowcolors{2}{green!10}{yellow!10}'))
+    doc.append(NoEscape(r'\setlength{\arrayrulewidth}{0.5pt}'))
+
     # Create table for the prayer time schedule
-    with doc.create(Tabu('|lc|cccccc|cr|', pos='c', row_height='1.35', col_space='7.5', width=10)) as table:
+    with doc.create(Tabular('|lc|cccccc|cr|', pos='c', row_height='1.35', col_space='7.5', width=10)) as table:
 
         table.add_hline()
         table.add_row(('', get_month_str(), 'Isha', 'Maghrib', 'Asr', 'Dhuhr',
                        'Shuruq', 'Fajr', NoEscape(r'\AR{' + months['hi'] + '}'),
-                        ''), color='lightgray')
-        table.add_row(('', '', *get_prayers_str(), '', ''), color='lightgray')
+                        ''), color='lightgray!20')
+        table.add_row(('', '', *get_prayers_str(), '', ''), color='lightgray!20')
         table.add_hline()
         c = 0
 
