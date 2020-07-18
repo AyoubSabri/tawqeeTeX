@@ -1,21 +1,31 @@
-import requests
-import json
 import sys
+import json
+import requests
+from utils import *
 from pylatex.utils import NoEscape, bold
-from parser import get_args
 
 fajr, sunrise, dhuhr, asr, maghrib, isha = [], [], [], [], [], []
 prayers = [fajr, sunrise, dhuhr, asr, maghrib, isha]
 date_gr, months = {}, {}
 hi_day, hi_weekday = [], []
-city, country, month, year, method, lang, adj = get_args()
-
-url = 'http://api.aladhan.com/v1/calendarByCity?city=' + city +     \
-                    '&country=' + country + '&method=' + method +   \
-                    '&month=' + month + '&year=' + year + '&adjustment=' + adj
+city, country, month, year, method, lang, adj = None, None, None, None, None, None, None
 
 
-def init_data():
+def init_data(arg_city, arg_country, arg_month, arg_year, arg_method, arg_lang, arg_adj):
+
+    global city, country, month, year, method, lang, adj
+
+    city = arg_city
+    country = arg_country
+    month = arg_month
+    year = arg_year
+    method = arg_method
+    lang = arg_lang
+    adj = arg_adj
+
+    url = 'http://api.aladhan.com/v1/calendarByCity?city=' + city + \
+                        '&country=' + country + '&method=' + method + \
+                        '&month=' + month + '&year=' + year + '&adjustment=' + adj
 
     response = requests.get(url)
 
@@ -40,29 +50,15 @@ def init_data():
 
 def get_month_str():
 
-    dict_month = {
-        'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        'it': ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-        'fr': ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aôut', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-    }
-
     return dict_month[lang][int(month) - 1]
 
 
 def get_title_str():
 
-    dict_title = {'en': 'Prayer time schedule for the month of ',
-                  'it': 'Orario di preghiera per il mese di ',
-                  'fr': 'Horaire de prière pour le mois de '}
-
     return dict_title[lang] + get_month_str() + ' ' + year
 
 
 def get_weekday_str(weekday):
-
-    dict_weekday = {'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                    'it': ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'],
-                    'fr': ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']}
 
     index = dict_weekday['en'].index(weekday)
 
@@ -74,7 +70,6 @@ def get_weekday_str(weekday):
 
 def get_prayers_str():
 
-    prayer_list = ['العشاء‎', 'المغرب‎', 'العصر‎', 'الظهر‎', 'الشروق‎', 'الفجر']
     res = []
 
     for p in prayer_list:

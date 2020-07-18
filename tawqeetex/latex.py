@@ -1,3 +1,4 @@
+import data
 from data import *
 from pylatex import Document, Head, Foot, LineBreak, LargeText, PageStyle, Tabular, VerticalSpace
 from pylatex.utils import NoEscape, bold, italic
@@ -36,7 +37,7 @@ def gen_pdf():
     doc.append(LargeText(bold(get_title_str())))
     doc.append(VerticalSpace('20pt'))
     doc.append(LineBreak())
-    doc.append(LargeText(italic(city)))
+    doc.append(LargeText(italic(data.city)))
     doc.append(VerticalSpace('20pt'))
     doc.append(LineBreak())
 
@@ -63,4 +64,4 @@ def gen_pdf():
             c += 1
 
     doc.append(NoEscape(r'\end{center}'))
-    doc.generate_pdf(city + '-' + month + '-' + year, clean_tex=False)
+    doc.generate_pdf(data.city + '-' + data.month + '-' + data.year, clean_tex=False, silent=True)

@@ -1,12 +1,10 @@
 import argparse
-
-prog_name = 'tawqeeTeX'
-version = '1.0'
+from utils import NAME, VERSION
 
 def get_args():
 
     # create the parser
-    parser = argparse.ArgumentParser(prog=prog_name, description='tawqeeTeX is a LaTeX prayer time generator',
+    parser = argparse.ArgumentParser(prog=NAME, description='tawqeeTeX is a LaTeX prayer time generator',
                                      epilog="Developed by Ayoub Sabri - ayoub.sabri@etu.upmc.fr")
 
     # positional arguments
@@ -44,7 +42,7 @@ def get_args():
                         choices=['en', 'fr', 'it'],
                         help='set the language (default: %(default)s)')
 
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + version,
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + VERSION,
                         help='print the current version of the software')
 
     #TODO: update
