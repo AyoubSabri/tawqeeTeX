@@ -1,5 +1,5 @@
 import argparse
-from utils import NAME, VERSION
+from .utils import NAME, VERSION
 
 def get_args():
 

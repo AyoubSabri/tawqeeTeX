@@ -1,13 +1,17 @@
-from data import init_data
-from latex import gen_pdf
-from parser import get_args
+# @package tawqeetex
 
-def main():
-    init_data(*get_args())
-    gen_pdf()
+# This tool will allow you to generate time prayer schedules
 
-def main_gui():
-    pass
+from .console import console_start
+# from .gui import gui_start
+
+def main_console():
+    console_start()
+
+# def main_gui():
+#     gui_start()
 
 if __name__ == '__main__':
-    main()
+    '''Program's entry point'''
+    main_console()
+    # main_gui()

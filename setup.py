@@ -1,12 +1,12 @@
 import setuptools
 
-from utils import VERSION
+from tawqeetex.utils import VERSION
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="tawqeetex", # Replace with your own username
+    name="tawqeetex",
     version=VERSION,
     author="Ayoub Sabri",
     author_email="sabriayoub96@gmail.com",

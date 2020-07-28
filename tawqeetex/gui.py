@@ -1,37 +1,37 @@
 # TODO: import only necessary widgets
-from utils import *
 from tkinter import *
 from tkinter import messagebox
+from .utils import *
+from .data import Tawqeetex
 
-from data import init_data
-from latex import gen_pdf
+gui = None
 
 def generate_callback():
+    '''
+    This function executes when the user clicks on the Generate button
+    The user's input are stored and passed to the Tawqeetex object in order
+    to produce the prayer time schedule.
+    '''
 
-    gui.city = gui.entry_city.get()
-    gui.country = gui.entry_country.get()
-    gui.month = str(dict_month['en'].index(gui.var_month.get()) + 1)
-    gui.year = gui.entry_year.get()
-    gui.method = str(list_method.index(gui.var_method.get()) + 1)
-    gui.lang = dict_lang[gui.var_lang.get()]
-    gui.adj = str(gui.slider_adj.get())
+    city = gui.entry_city.get()
+    country = gui.entry_country.get()
+    month = str(dict_month['en'].index(gui.var_month.get()) + 1)
+    year = gui.entry_year.get()
+    method = str(list_method.index(gui.var_method.get()) + 1)
+    lang = dict_lang[gui.var_lang.get()]
+    adj = str(gui.slider_adj.get())
 
-    init_data(gui.city, gui.country, gui.month, gui.year, gui.method, gui.lang, gui.adj)
-    gen_pdf()
+    data = Tawqeetex(city, country, month, year, method, lang, adj)
+    data.create_schedule()
 
-    messagebox.showinfo("Warning", "The prayer time schedule is being generated")
+    messagebox.showinfo("Warning", "The prayer time schedule has been generated successfully")
+    # gui.root.exit()
 
 class GUI:
-
-    city = None
-    country = None
-    month = None
-    year = None
-    method = None
-    lang = None
-    adj = None
+    '''This class gather all the widget being used in the GUI.'''
 
     def __init__(self):
+        '''GUI initialization.'''
         self.root = Tk()
         self.root.title('tawqeeTeX')
         # self.root.iconbitmap('')
@@ -84,9 +84,11 @@ class GUI:
         self.button_go.grid(row=7, column=0, columnspan=2)
 
     def run(self):
+        '''Run the GUI.'''
         self.root.mainloop()
 
-gui = GUI()
+def gui_start():
 
-def gui_init():
+    global gui
+    gui = GUI()
     gui.run()
